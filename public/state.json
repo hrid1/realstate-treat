@@ -1,0 +1,83 @@
+[
+    {
+        "id": 1,
+        "estate_title": "Luxury Apartment in Downtown",
+        "segment_name": "Apartment",
+        "description": "A modern 3-bedroom apartment located in the heart of the city with stunning skyline views.",
+        "price": "$850,000",
+        "status": "sale",
+        "area": "2000 sq ft",
+        "location": "Downtown City Center",
+        "facilities": ["living room", "swimming pool", "kitchen", "gym", "balcony"],
+        "image": "https://newhome.qodeinteractive.com/wp-content/uploads/2023/03/main-home-property-460x300.jpg",
+        "view": "View Property"
+    },
+    {
+        "id": 2,
+        "estate_title": "Cozy Suburban House",
+        "segment_name": "House",
+        "description": "A charming 4-bedroom house with a large backyard and great community amenities.",
+        "price": "$450,000",
+        "status": "sale",
+        "area": "2500 sq ft",
+        "location": "Suburban Hills",
+        "facilities": ["living room", "swimming pool", "kitchen", "garage", "garden"],
+        "image": "https://newhome.qodeinteractive.com/wp-content/uploads/2023/03/list-half-map-image-3-460x300.jpg",
+        "view": "View Property"
+    },
+    {
+        "id": 3,
+        "estate_title": "Penthouse with Ocean View",
+        "segment_name": "Penthouse",
+        "description": "A luxurious penthouse with floor-to-ceiling windows and panoramic ocean views.",
+        "price": "$1,500,000",
+        "status": "sale",
+        "area": "3500 sq ft",
+        "location": "Oceanfront Boulevard",
+        "facilities": ["living room", "swimming pool", "kitchen", "rooftop terrace", "private elevator"],
+        "image": "https://newhome.qodeinteractive.com/wp-content/uploads/2023/03/list-sidebar-img-1-460x300.jpg",
+        "view": "View Property"
+    },
+    {
+        "id": 4,
+        "estate_title": "Modern Condo",
+        "segment_name": "Condo",
+        "description": "A sleek 2-bedroom condo with easy access to shopping and dining options.",
+        "price": "$600,000",
+        "status": "rent",
+        "area": "1800 sq ft",
+        "location": "Uptown District",
+        "facilities": ["living room", "kitchen", "fitness center", "parking"],
+        "image": "https://newhome.qodeinteractive.com/wp-content/uploads/2023/03/list-sidebar-img-2-460x300.jpg",
+        "view": "View Property"
+    },
+    {
+        "id": 5,
+        "estate_title": "Beachfront Villa",
+        "segment_name": "Villa",
+        "description": "An exclusive 5-bedroom villa with direct beach access and a private pool.",
+        "price": "$2,500,000",
+        "status": "sale",
+        "area": "5000 sq ft",
+        "location": "Coastal Paradise",
+        "facilities": ["living room", "swimming pool", "kitchen", "private beach", "outdoor dining"],
+        "image": "https://newhome.qodeinteractive.com/wp-content/uploads/2023/03/list-half-map-image-1-460x300.jpg",
+        "view": "View Property"
+    },
+    {
+        "id": 6,
+        "estate_title": "Urban Studio",
+        "segment_name": "Studio",
+        "description": "A compact, modern studio perfect for city living, close to public transport.",
+        "price": "$1,200/month",
+        "status": "rent",
+        "area": "600 sq ft",
+        "location": "City Center",
+        "facilities": ["living room", "kitchen", "laundry", "24/7 security"],
+        "image": "https://newhome.qodeinteractive.com/wp-content/uploads/2023/03/property-gallery-img-1-new-460x300.jpg",
+        "view": "View Property"
+    }
+
+]
+
+
