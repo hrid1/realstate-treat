@@ -1,5 +1,8 @@
 import { Link, NavLink } from "react-router-dom";
-
+import logo from "../assets/rlogo.png";
+import { FaUser } from "react-icons/fa";
+import { FiMenu } from "react-icons/fi";
+import { TiThMenu } from "react-icons/ti";
 const Navbar = () => {
   const navLinks = (
     <>
@@ -16,39 +19,37 @@ const Navbar = () => {
   );
 
   return (
-    <div className="navbar bg-base-100">
+    <div className="navbar bg-base-200 px-3.5 py-5">
       <div className="navbar-start">
-        <div className="dropdown">
-          <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M4 6h16M4 12h8m-8 6h16"
-              />
-            </svg>
-          </div>
-          <ul
-            tabIndex={0}
-            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
-          >
-            {navLinks}
-          </ul>
-        </div>
-        <a className="btn btn-ghost text-xl">daisyUI</a>
+        <Link to="/" className=" text-xl flex items-center">
+          <img className="w" src={logo} alt="" />
+        </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{navLinks}</ul>
       </div>
       <div className="navbar-end">
-        <a className="btn">Button</a>
+        <div
+          className="dropdown bg-teal-600  rounded-md
+        "
+        >
+          <div
+            tabIndex={0}
+            role="button"
+            className="px-3 py-2.5  lg:hidden text-white flex items-center justify-center font-bold"
+          >
+         <TiThMenu className="" />
+          </div>
+          <ul
+            tabIndex={0}
+            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-28 p-2 shadow"
+          >
+            {navLinks}
+          </ul>
+        </div>
+        <Link to="/" className="p-4">
+          <FaUser className="text-lg"></FaUser>
+        </Link>
       </div>
     </div>
   );
