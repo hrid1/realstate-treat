@@ -13,14 +13,18 @@ const Navbar = () => {
         <NavLink to="/about">About</NavLink>
       </li>
       <li>
-        <NavLink to="/contacct">Contact</NavLink>
+        <NavLink to="/contact">Contact</NavLink>
+      </li>
+      <li>
+        <NavLink to="/favorite">Favorite</NavLink>
       </li>
     </>
   );
 
   return (
-    <div className="navbar bg-base-200 w-full md:py-4">
-      <div className="lg:navbar-start navbar-center w-1/2 lg:1/3">
+    <div className="navbar bg-base-200 bg-opacity-30 w-full md:py-4 sticky top-0 z-20 backdrop-blur-md">
+      {/* first */}
+      <div className="lg:navbar-start navbar-center w-1/2 md:w-1/3 ">
         <div
           className="dropdown mr-2.5 bg-teal-600  hover:bg-teal-700 rounded-md
         "
@@ -43,18 +47,34 @@ const Navbar = () => {
           <img className="w" src={logo} alt="" />
         </Link>
       </div>
-      <div className="lg:navbar-center  hidden lg:flex lg-1/3">
+      {/* second */}
+      <div className="lg:navbar-center  hidden lg:flex lg:1/3 lg:ml-20 ">
         <ul className="menu menu-horizontal px-1">{navLinks}</ul>
       </div>
+      {/* third */}
       <div className="navbar-end flex justify-end  lg:1/3">
-        <div className="flex items-center gap-2">
+        {/* if user exits */}
+        {/* <div className="flex items-center gap-2">
           <Link to="/" className="p-4">
             <FaUser className="text-lg"></FaUser>
           </Link>
           <h1 className="btn bg-teal-600 text-white hover:text-black">
             Logout
           </h1>
-        </div>
+        </div> */}
+
+        {
+          // if user not exist
+          <div className="flex items-center gap-2">
+            
+            <Link to={'/login'} className="btn bg-teal-600 border-none text-white hover:text-black">
+              Login
+            </Link>
+            <Link to={'/register'} className="btn bg-teal-600 border-noen text-white hover:text-black">
+              Register
+            </Link>
+          </div>
+        }
       </div>
     </div>
   );
