@@ -1,16 +1,25 @@
+import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../provider/AuthProvier/AuthProvider";
+
+
 
 const Register = () => {
+  const { createUser } = useContext(AuthContext);
+
   const {
     register,
     handleSubmit,
-    watch,
+
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => console.log(data);
-
-  //   console.log(watch("email")); // watch input value by passing the name of it
+  const onSubmit = ({ email, password }) => {
+    // console.log(email, password)
+    createUser(email, password)
+      .then((result) => console.log(result.user))
+      .catch((error) => console.log(error.message));
+  };
 
   return (
     /* "handleSubmit" will validate your inputs before invoking "onSubmit" */
@@ -42,7 +51,7 @@ const Register = () => {
         />
         <br />
         <label className="text-xl font-semibold" htmlFor="password">
-          Username
+          Password
         </label>
         <input
           className="border px-3 py-2 rounded-md"

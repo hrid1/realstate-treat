@@ -1,14 +1,23 @@
 import { useForm } from "react-hook-form";
 import loghome from "../../assets/lg-home.jpg";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContext } from "../../provider/AuthProvier/AuthProvider";
 const Login = () => {
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => console.log(data);
+
+  const { signInUser } = useContext(AuthContext);
+  // console.log(signInUser);
+
+  const onSubmit = ({ email, password }) => {
+    signInUser(email, password)
+      .then((result) => console.log(result.user))
+      .catch((error) => console.log(error.message));
+  };
 
   return (
     <section className="flex flex-col md:flex-row justify-center  items-center">
@@ -44,8 +53,7 @@ const Login = () => {
               defaultValue="123456"
               {...register("password")}
             />
-           
-            
+
             <br />
             {/* errors will return when field validation fails  */}
             {errors.exampleRequired && <span>This field is required</span>}

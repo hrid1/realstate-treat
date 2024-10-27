@@ -7,16 +7,16 @@ import { Autoplay } from "swiper/modules";
 
 // import images
 import slide1 from "../assets/carosol/slide1.jpg";
-import slide2 from "../assets/carosol/slide2.jpg";
-import slide3 from "../assets/carosol/slide3.jpg";
+// import slide2 from "../assets/carosol/slide2.jpg";
+// import slide3 from "../assets/carosol/slide3.jpg";
 const Carosol = () => {
   return (
     <Swiper
       modules={[Autoplay]}
       spaceBetween={50}
       slidesPerView={1}
-      onSlideChange={() => console.log("slide change")}
-      onSwiper={(swiper) => console.log(swiper)}
+      // onSlideChange={() => console.log("slide change")}
+      // onSwiper={(swiper) => console.log(swiper)}
       autoplay={{ delay: 3000 }}
     >
       {/* <SwiperSlide>
