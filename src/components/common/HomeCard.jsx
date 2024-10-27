@@ -1,3 +1,6 @@
+
+import { IoLocationOutline } from "react-icons/io5";
+
 const HomeCard = ({ home }) => {
   const {
     id,
@@ -18,9 +21,10 @@ const HomeCard = ({ home }) => {
         <img className="rounded hover:scale-110 duration-500" src={image} alt="Shoes" />
       </figure>
       <div className="card-body">
+        <p className="flex items-center gap-1"> <IoLocationOutline/> {location}</p>
         <h2 className="card-title">{estate_title}</h2>
-        <p>{location}</p>
         {/* <p className="text-lg font-semibold">{price}</p> */}
+        <p>{description}</p>
         <div className="card-actions justify-between items-center ">
           <button className="btn bg-teal-600 hover:bg-teal-200 text-white hover:text-black">
             Check Availability
