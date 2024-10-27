@@ -1,5 +1,6 @@
 
 import { IoLocationOutline } from "react-icons/io5";
+import { Link } from "react-router-dom";
 
 const HomeCard = ({ home }) => {
   const {
@@ -26,9 +27,9 @@ const HomeCard = ({ home }) => {
         {/* <p className="text-lg font-semibold">{price}</p> */}
         <p>{description}</p>
         <div className="card-actions justify-between items-center ">
-          <button className="btn bg-teal-600 hover:bg-teal-200 text-white hover:text-black">
+          <Link to={`home/${id}`} className="btn bg-teal-600 hover:bg-teal-200 text-white hover:text-black">
             Check Availability
-          </button>
+          </Link>
           <h3 className="font-semibold">Price: {price} </h3>
         </div>
       </div>

@@ -4,6 +4,9 @@ import Home from "../pages/Home/Home";
 import About from "../pages/About/About";
 import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
+import Favorite from "../pages/Favorite/Favorite";
+import PrivateRoutes from "./PrivateRoutes";
+import HomeDetails from "../pages/HomeDetails/HomeDetails";
 
 export const router = createBrowserRouter([
   {
@@ -25,6 +28,18 @@ export const router = createBrowserRouter([
       {
         path: "/register",
         element: <Register></Register>,
+      },
+      {
+        path: "/home/:hid",
+        element: <HomeDetails></HomeDetails>
+      },
+      {
+        path: "/favorite",
+        element: (
+          <PrivateRoutes>
+            <Favorite />
+          </PrivateRoutes>
+        ),
       },
     ],
   },

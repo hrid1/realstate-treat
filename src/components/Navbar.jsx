@@ -10,9 +10,9 @@ const Navbar = () => {
   // console.log(user);
   const handleLogout = () => {
     logOutUser()
-    .then(()=> console.log('Sign Out Successful'))
-    .catch(error => console.log(error.message))
-  }
+      .then(() => console.log("Sign Out Successful"))
+      .catch((error) => console.log(error.message));
+  };
   const navLinks = (
     <>
       <li>
@@ -66,10 +66,13 @@ const Navbar = () => {
 
         {user ? (
           <div className="flex items-center gap-2">
-            <Link to="/" className="p-4 border rounded-full bg-teal-400">
+            <Link to="/" className="p-4 border rounded-full bg-teal-200">
               <FaUser className="text-lg"></FaUser>
             </Link>
-            <button onClick={handleLogout} className="btn bg-teal-600 text-white hover:text-black">
+            <button
+              onClick={handleLogout}
+              className="btn bg-teal-600 text-white hover:text-black"
+            >
               Logout
             </button>
           </div>
