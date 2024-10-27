@@ -3,7 +3,16 @@ import logo from "../assets/rlogo.png";
 import { FaUser } from "react-icons/fa";
 
 import { TiThMenu } from "react-icons/ti";
+import { useContext } from "react";
+import { AuthContext } from "../provider/AuthProvier/AuthProvider";
 const Navbar = () => {
+  const { user, logOutUser } = useContext(AuthContext);
+  // console.log(user);
+  const handleLogout = () => {
+    logOutUser()
+    .then(()=> console.log('Sign Out Successful'))
+    .catch(error => console.log(error.message))
+  }
   const navLinks = (
     <>
       <li>
@@ -54,26 +63,35 @@ const Navbar = () => {
       {/* third */}
       <div className="navbar-end flex justify-end  lg:1/3">
         {/* if user exits */}
-        {/* <div className="flex items-center gap-2">
-          <Link to="/" className="p-4">
-            <FaUser className="text-lg"></FaUser>
-          </Link>
-          <h1 className="btn bg-teal-600 text-white hover:text-black">
-            Logout
-          </h1>
-        </div> */}
 
-        {
-          // if user not exist
+        {user ? (
           <div className="flex items-center gap-2">
-            
-            <Link to={'/login'} className="btn bg-teal-600 border-none text-white hover:text-black">
+            <Link to="/" className="p-4 border rounded-full bg-teal-400">
+              <FaUser className="text-lg"></FaUser>
+            </Link>
+            <button onClick={handleLogout} className="btn bg-teal-600 text-white hover:text-black">
+              Logout
+            </button>
+          </div>
+        ) : (
+          <div className="flex items-center gap-2">
+            <Link
+              to={"/login"}
+              className="btn bg-teal-600 border-none text-white hover:text-black border "
+            >
               Login
             </Link>
-            <Link to={'/register'} className="btn bg-teal-600 border-noen text-white hover:text-black">
+            <Link
+              to={"/register"}
+              className="btn bg-teal-600 border-none text-white hover:text-black"
+            >
               Register
             </Link>
           </div>
+        )}
+
+        {
+          // if user not exist
         }
       </div>
     </div>
