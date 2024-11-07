@@ -15,18 +15,38 @@ const Navbar = () => {
   };
   const navLinks = (
     <>
-      <li>
-        <NavLink to="/">Home</NavLink>
-      </li>
-      <li>
-        <NavLink to="/about">About</NavLink>
-      </li>
-      <li>
-        <NavLink to="/contact">Contact</NavLink>
-      </li>
-      <li>
-        <NavLink to="/favorite">Favorite</NavLink>
-      </li>
+      <NavLink
+        className={({ isActive }) =>
+          isActive ? "font-bold underline underline-offset-2" : ""
+        }
+        to="/"
+      >
+        Home
+      </NavLink>
+      <NavLink
+        className={({ isActive }) =>
+          isActive ? "font-bold underline underline-offset-2" : ""
+        }
+        to="/about"
+      >
+        About
+      </NavLink>
+      <NavLink
+        className={({ isActive }) =>
+          isActive ? "font-bold underline underline-offset-2" : ""
+        }
+        to="/contact"
+      >
+        Contact
+      </NavLink>
+      <NavLink
+        className={({ isActive }) =>
+          isActive ? "font-bold underline underline-offset-2" : ""
+        }
+        to="/favorite"
+      >
+        Favorite
+      </NavLink>
     </>
   );
 
@@ -58,7 +78,9 @@ const Navbar = () => {
       </div>
       {/* second */}
       <div className="lg:navbar-center  hidden lg:flex lg:1/3 lg:ml-20 ">
-        <ul className="menu menu-horizontal px-1">{navLinks}</ul>
+        <ul className="menu menu-horizontal px-1 gap-4 md:text-lg">
+          {navLinks}
+        </ul>
       </div>
       {/* third */}
       <div className="navbar-end flex justify-end  lg:1/3">
@@ -80,7 +102,7 @@ const Navbar = () => {
           <div className="flex items-center gap-2">
             <Link
               to={"/login"}
-              className="btn bg-teal-600 border-none text-white hover:text-black border "
+              className="btn text-teal-600 border-2  bg-white border-teal-500  hover:text-black "
             >
               Login
             </Link>

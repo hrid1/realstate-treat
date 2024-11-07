@@ -18,7 +18,7 @@ const HomeCard = ({ home }) => {
   } = home;
   return (
     <div className="card card-compact bg-base-100  shadow-xl p-2">
-      <figure>
+      <figure className="py-2">
         <img className="rounded hover:scale-110 duration-500" src={image} alt="Shoes" />
       </figure>
       <div className="card-body">

@@ -7,11 +7,13 @@ import Register from "../pages/Register/Register";
 import Favorite from "../pages/Favorite/Favorite";
 import PrivateRoutes from "./PrivateRoutes";
 import HomeDetails from "../pages/HomeDetails/HomeDetails";
+import NotFound from "../pages/NotFound/NotFound";
 
 export const router = createBrowserRouter([
   {
     path: "/",
     element: <RootPage></RootPage>,
+    errorElement: <NotFound />,
     children: [
       {
         path: "/",
@@ -31,7 +33,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/home/:hid",
-        element: <HomeDetails></HomeDetails>
+        element: <HomeDetails></HomeDetails>,
       },
       {
         path: "/favorite",

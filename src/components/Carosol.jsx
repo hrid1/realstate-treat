@@ -28,10 +28,10 @@ const Carosol = () => {
 
       <SwiperSlide>
         <div
-          className="h-80 md:h-[600px] bg-cover bg-center"
+          className="h-80 md:h-[600px] bg-cover bg-center rounded-md"
           style={{ backgroundImage: `url(${slide1})` }}
         >
-          <div className="h-full bg-black bg-opacity-60">
+          <div className="h-full bg-black bg-opacity-60 rounded-md">
             <div className="flex flex-col gap-4 justify-center items-start  h-full px-8 md:px-20 lg:ml-20">
               <h1 className="text-5xl md:text-6xl font-bold text-white md:w-2/3">
                 Discover the art of luxury accommodation
