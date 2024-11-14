@@ -17,7 +17,7 @@ const Navbar = () => {
     <>
       <NavLink
         className={({ isActive }) =>
-          isActive ? "font-bold underline underline-offset-2" : ""
+          isActive ? "font-bold text-teal-600 underline underline-offset-2" : ""
         }
         to="/"
       >
@@ -25,7 +25,7 @@ const Navbar = () => {
       </NavLink>
       <NavLink
         className={({ isActive }) =>
-          isActive ? "font-bold underline underline-offset-2" : ""
+          isActive ? "font-bold text-teal-600 underline underline-offset-2" : ""
         }
         to="/about"
       >
@@ -33,7 +33,7 @@ const Navbar = () => {
       </NavLink>
       <NavLink
         className={({ isActive }) =>
-          isActive ? "font-bold underline underline-offset-2" : ""
+          isActive ? "font-bold text-teal-600 underline underline-offset-2" : ""
         }
         to="/contact"
       >
@@ -41,12 +41,25 @@ const Navbar = () => {
       </NavLink>
       <NavLink
         className={({ isActive }) =>
-          isActive ? "font-bold underline underline-offset-2" : ""
+          isActive ? "font-bold text-teal-600 underline underline-offset-2" : ""
         }
         to="/favorite"
       >
         Favorite
       </NavLink>
+
+      {user && (
+        <NavLink
+          className={({ isActive }) =>
+            isActive
+              ? "font-bold text-teal-600 underline underline-offset-2"
+              : ""
+          }
+          to="/profile"
+        >
+          Profile
+        </NavLink>
+      )}
     </>
   );
 
@@ -87,9 +100,9 @@ const Navbar = () => {
         {/* if user exits */}
 
         {user ? (
-          <div className="flex items-center gap-2">
-            <Link to="/" className="p-4 border rounded-full bg-teal-200">
-              <FaUser className="text-lg"></FaUser>
+          <div className="flex items-center gap-3.5">
+            <Link to="/" className="p-3 border rounded-full bg-teal-200">
+              <FaUser className="text-lg "></FaUser>
             </Link>
             <button
               onClick={handleLogout}

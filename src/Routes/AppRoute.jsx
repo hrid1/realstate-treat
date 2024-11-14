@@ -8,6 +8,7 @@ import Favorite from "../pages/Favorite/Favorite";
 import PrivateRoutes from "./PrivateRoutes";
 import HomeDetails from "../pages/HomeDetails/HomeDetails";
 import NotFound from "../pages/NotFound/NotFound";
+import Profile from "../pages/Profile/Profile";
 
 export const router = createBrowserRouter([
   {
@@ -40,6 +41,14 @@ export const router = createBrowserRouter([
         element: (
           <PrivateRoutes>
             <Favorite />
+          </PrivateRoutes>
+        ),
+      },
+      {
+        path: "/profile",
+        element: (
+          <PrivateRoutes>
+            <Profile />
           </PrivateRoutes>
         ),
       },

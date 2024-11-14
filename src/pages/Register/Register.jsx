@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvier/AuthProvider";
 import Swal from "sweetalert2";
+import { updateProfile } from "firebase/auth";
 
 const Register = () => {
   const { createUser } = useContext(AuthContext);
@@ -17,7 +18,7 @@ const Register = () => {
   const [error, setError] = useState("");
 
   // hande form submit
-  const onSubmit = ({ email, password, terms }) => {
+  const onSubmit = ({ username, email, password, terms }) => {
     // clean errro
     setError("");
 
@@ -28,14 +29,18 @@ const Register = () => {
     // create user
     createUser(email, password)
       .then((result) => {
-        // show moldal
-        Swal.fire({
-          icon: "success",
-          title: "Your account has been Created",
-          timer: 1500,
+        updateProfile(result.user, {
+          displayName: username,
+        }).then(() => {
+          // show moldal after register
+          Swal.fire({
+            icon: "success",
+            title: "Your account has been Created",
+            timer: 1500,
+          });
+          // navigate after register
+          navigate("/");
         });
-        // navigate after
-        navigate("/");
       })
       .catch((error) => {
         setError(error.message);
