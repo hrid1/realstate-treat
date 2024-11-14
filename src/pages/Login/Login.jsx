@@ -1,8 +1,9 @@
 import { useForm } from "react-hook-form";
 import loghome from "../../assets/lg-home.jpg";
-import { Link } from "react-router-dom";
-import { useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { useContext, useState } from "react";
 import { AuthContext } from "../../provider/AuthProvier/AuthProvider";
+import toast from "react-hot-toast";
 const Login = () => {
   const {
     register,
@@ -11,12 +12,21 @@ const Login = () => {
   } = useForm();
 
   const { signInUser } = useContext(AuthContext);
+  const navigate = useNavigate();
   // console.log(signInUser);
+  const [error, setError] = useState("");
 
   const onSubmit = ({ email, password }) => {
+    setError(""); // clean the error msg
     signInUser(email, password)
-      .then((result) => console.log(result.user))
-      .catch((error) => console.log(error.message));
+      .then((result) => {
+        toast.success("Welcome to the Realshomes.");
+        navigate("/");
+      })
+      .catch((error) => {
+        toast.error("Failed to Login !");
+        setError(error.message);
+      });
   };
 
   return (
@@ -57,6 +67,7 @@ const Login = () => {
             <br />
             {/* errors will return when field validation fails  */}
             {errors.exampleRequired && <span>This field is required</span>}
+            {error && <p className="text-red-500 font-semibold">{error}</p>}
             <input
               className="btn bg-teal-600 text-lg rounded-md text-white "
               type="submit"
