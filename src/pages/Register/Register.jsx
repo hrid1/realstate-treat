@@ -1,24 +1,50 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvier/AuthProvider";
-
-
+import Swal from "sweetalert2";
 
 const Register = () => {
   const { createUser } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const {
     register,
     handleSubmit,
-
     formState: { errors },
   } = useForm();
-  const onSubmit = ({ email, password }) => {
-    // console.log(email, password)
+
+  const [error, setError] = useState("");
+
+  // hande form submit
+  const onSubmit = ({ email, password, terms }) => {
+    // clean errro
+    setError("");
+
+    // checking terms and condtions
+    if (!terms) return setError("plz accept terms and condtions !");
+
+    console.log(email, password, terms);
+    // create user
     createUser(email, password)
-      .then((result) => console.log(result.user))
-      .catch((error) => console.log(error.message));
+      .then((result) => {
+        // show moldal
+        Swal.fire({
+          icon: "success",
+          title: "Your account has been Created",
+          timer: 1500,
+        });
+        // navigate after
+        navigate("/");
+      })
+      .catch((error) => {
+        setError(error.message);
+        Swal.fire({
+          icon: "error",
+          title: "Login failed",
+          timer: 1500,
+        });
+      });
   };
 
   return (
@@ -46,7 +72,7 @@ const Register = () => {
         </label>
         <input
           className="border px-3 py-2 rounded-md"
-          defaultValue="test@gmail.com"
+          defaultValue="thor@gmail.com"
           {...register("email")}
         />
         <br />
@@ -57,15 +83,17 @@ const Register = () => {
           className="border px-3 py-2 rounded-md"
           defaultValue="123456"
           {...register("password")}
+          type="password"
         />
         <br />
         <div className="flex gap-2.5 items-center bg-blue -700">
-          <input className="w-4" type="checkbox" />{" "}
+          <input className="w-4" type="checkbox" {...register("terms")} />{" "}
           <p>Accept terms and conditions</p>
         </div>
         <br />
         {/* errors will return when field validation fails  */}
         {errors.exampleRequired && <span>This field is required</span>}
+        {error && <p className="text-red-500 font-semibold">{error}</p>}
         <input
           className="btn bg-teal-600 text-lg rounded-md text-white "
           type="submit"

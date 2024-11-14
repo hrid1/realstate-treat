@@ -41,7 +41,7 @@ const Login = () => {
             </label>
             <input
               className="border px-3 py-2 rounded-md"
-              defaultValue="test@gmail.com"
+              defaultValue="thor@gmail.com"
               {...register("email")}
             />
             <br />
