@@ -106,16 +106,16 @@ const Navbar = () => {
             </Link>
             <button
               onClick={handleLogout}
-              className="btn bg-teal-600 text-white hover:text-black"
+              className="btn btn-s bg-teal-600 text-white hover:text-black"
             >
               Logout
             </button>
           </div>
         ) : (
-          <div className="flex items-center gap-2">
+          <div className="flex justify-center items-center gap-2">
             <Link
               to={"/login"}
-              className="btn text-teal-600 border-2  bg-white border-teal-500  hover:text-black "
+              className="btn  text-teal-600 border-2  bg-white border-teal-500  hover:text-black "
             >
               Login
             </Link>

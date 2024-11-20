@@ -5,6 +5,7 @@ import Carosol from "../../components/Carosol";
 import FeatureSection from "../../components/FeatureSection";
 import { AuthContext } from "../../provider/AuthProvier/AuthProvider";
 
+
 const Home = () => {
 
   const user = useContext(AuthContext);
@@ -15,6 +16,7 @@ const Home = () => {
       {/* <h1>Welcome to HOme</h1> */}
       <CardContainer></CardContainer>
       <FeatureSection/>
+
 
       
     </div>
