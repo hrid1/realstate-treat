@@ -1,6 +1,11 @@
 import { useForm } from "react-hook-form";
 import loghome from "../../assets/lg-home.jpg";
-import { Link, useNavigate } from "react-router-dom";
+import {
+  Link,
+  useLoaderData,
+  useLocation,
+  useNavigate,
+} from "react-router-dom";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../provider/AuthProvier/AuthProvider";
 import toast from "react-hot-toast";
@@ -13,6 +18,8 @@ const Login = () => {
 
   const { signInUser } = useContext(AuthContext);
   const navigate = useNavigate();
+  const location = useLocation();
+  console.log(location);
   // console.log(signInUser);
   const [error, setError] = useState("");
 
@@ -21,7 +28,7 @@ const Login = () => {
     signInUser(email, password)
       .then((result) => {
         toast.success("Welcome to the Realshomes.");
-        navigate("/");
+        location.state ? navigate(location.state) : navigate("/");
       })
       .catch((error) => {
         toast.error("Failed to Login !");
